@@ -1,0 +1,239 @@
+body{
+font-family:"Segoe UI",Arial,sans-serif;
+background:#f3f4f6;
+margin:0;
+padding:0;
+}
+
+/* CHAT BUTTON */
+
+#chat-toggle{
+position:fixed;
+bottom:25px;
+right:25px;
+width:64px;
+height:64px;
+background:linear-gradient(135deg,#007bff,#0056d6);
+color:white;
+font-size:28px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+cursor:pointer;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* BADGE */
+
+#chat-badge{
+position:absolute;
+top:-5px;
+right:-5px;
+background:red;
+color:white;
+font-size:12px;
+width:18px;
+height:18px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* CHATBOX */
+
+#chatbox{
+position:fixed;
+bottom:100px;
+right:25px;
+width:360px;
+height:520px;
+background:white;
+border-radius:16px;
+box-shadow:0 20px 40px rgba(0,0,0,0.25);
+
+transform:translateY(40px);
+opacity:0;
+pointer-events:none;
+
+transition:all 0.3s ease;
+}
+
+#chatbox.active{
+display:flex;
+flex-direction:column;
+transform:translateY(0);
+opacity:1;
+pointer-events:auto;
+}
+
+/* HEADER */
+
+.chat-header{
+background:linear-gradient(135deg,#007bff,#0056d6);
+color:white;
+padding:14px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-weight:600;
+}
+
+/* MESSAGE AREA */
+
+#messages{
+flex:1;
+overflow-y:auto;
+padding:15px;
+display:flex;
+flex-direction:column;
+gap:12px;
+background:#f7f8fa;
+}
+
+/* MESSAGE ROW */
+
+.message-row{
+display:flex;
+align-items:flex-start;
+gap:8px;
+}
+
+.message-row.user{
+justify-content:flex-end;
+}
+
+/* AVATAR */
+
+.avatar{
+font-size:22px;
+}
+
+/* MESSAGE */
+
+.message{
+padding:10px 14px;
+border-radius:14px;
+max-width:70%;
+font-size:14px;
+line-height:1.5;
+}
+
+.user-bubble{
+background:#007bff;
+color:white;
+}
+
+.bot-bubble{
+background:white;
+border:1px solid #e5e7eb;
+}
+
+/* INPUT */
+
+.input-area{
+display:flex;
+gap:10px;
+padding:12px;
+border-top:1px solid #eee;
+}
+
+input{
+flex:1;
+padding:10px;
+border-radius:10px;
+border:1px solid #ddd;
+}
+
+button{
+padding:10px 16px;
+border:none;
+background:#007bff;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* QUICK BUTTONS */
+
+.quick-buttons{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+}
+
+.quick-btn{
+padding:6px 10px;
+border-radius:20px;
+border:1px solid #007bff;
+background:white;
+color:#007bff;
+font-size:12px;
+cursor:pointer;
+}
+
+.quick-btn:hover{
+background:#007bff;
+color:white;
+}
+
+/* TYPING DOTS */
+
+.typing-bubble{
+display:flex;
+gap:4px;
+}
+
+.typing-dot{
+width:8px;
+height:8px;
+background:#999;
+border-radius:50%;
+animation:typing 1.4s infinite;
+}
+
+.typing-dot:nth-child(2){animation-delay:0.2s;}
+.typing-dot:nth-child(3){animation-delay:0.4s;}
+
+@keyframes typing{
+0%{opacity:0.3;transform:translateY(0);}
+50%{opacity:1;transform:translateY(-4px);}
+100%{opacity:0.3;transform:translateY(0);}
+}
+
+/* LEAD FORM */
+
+.lead-form{
+display:flex;
+flex-direction:column;
+gap:8px;
+background:white;
+border:1px solid #ddd;
+padding:10px;
+border-radius:10px;
+}
+.mic-btn{
+background:#0b6cff;
+border:none;
+border-radius:50%;
+width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+margin-left:6px;
+box-shadow:0 6px 16px rgba(0,0,0,0.25);
+transition:0.2s;
+}
+
+.mic-btn:hover{
+transform:scale(1.08);
+}
+
+.mic-btn svg{
+width:34px;
+height:34px;
+fill:white;
+}

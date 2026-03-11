@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Company AI Assistant</title>
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* MIC BUTTON STYLE */
+
+.mic-btn{
+background:#0b6cff;
+border:none;
+border-radius:10px;
+width:50px;
+height:50px;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+margin-left:5px;
+}
+
+.mic-btn:hover{
+background:#0956cc;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2 style="text-align:center">Company AI Assistant</h2>
+
+<div id="chat-toggle" onclick="toggleChat()">
+💬
+<span id="chat-badge">1</span>
+</div>
+
+<div id="chatbox">
+
+<div class="chat-header">
+🤖 AI Assistant
+<span onclick="toggleChat()">✖</span>
+</div>
+
+<div id="messages"></div>
+
+<!-- INPUT AREA -->
+
+<div class="input-area">
+
+<input id="input" placeholder="Ask your question..." />
+
+<!-- CHATGPT STYLE MIC BUTTON -->
+
+<button id="voice-btn" class="mic-btn" onclick="startVoice()">
+
+<svg xmlns="http://www.w3.org/2000/svg"
+viewBox="0 0 24 24"
+fill="white">
+
+<path d="M12 15a3 3 0 003-3V6a3 3 0 10-6 0v6a3 3 0 003 3zm5-3a1 1 0 112 0 7 7 0 01-14 0 1 1 0 112 0 5 5 0 0010 0zm-4 8v-3h-2v3h2z"/>
+
+</svg>
+
+</button>
+
+<button onclick="sendMessage()">Send</button>
+
+</div>
+
+</div>
+
+<script src="chat.js"></script>
+
+<script>
+
+let welcomeShown=false;
+
+function toggleChat(){
+
+const chat=document.getElementById("chatbox");
+const badge=document.getElementById("chat-badge");
+
+chat.classList.toggle("active");
+
+badge.style.display="none";
+
+}
+
+/* VOICE FUNCTION */
+
+function startVoice(){
+
+const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+
+recognition.lang="en-US";
+
+recognition.start();
+
+recognition.onresult=function(event){
+
+const text=event.results[0][0].transcript;
+
+document.getElementById("input").value=text;
+
+};
+
+}
+
+</script>
+
+</body>
+
+</html>
+
